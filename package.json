@@ -1,0 +1,25 @@
+{
+  "name": "nodefolio",
+  "version": "0.0.1",
+  "description": "A personal portfolio site made with Node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rasmusskovbo/nodefolio.git"
+  },
+  "author": "Rasmus Skovbo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rasmusskovbo/nodefolio/issues"
+  },
+  "homepage": "https://github.com/rasmusskovbo/nodefolio#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "cross-env":"^7.0.3"
+  }
+}
