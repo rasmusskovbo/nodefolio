@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(17, 17, 17);
+    color: white;
+    margin: 0;
+}
+
+/* Nav bar */
+ul {
+    list-style-type: none;
+    margin: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 1rem;
+    width: 10%;
+    background-color: #181818;
+    color: white;
+    height: relative; /* 100% for full page sidenav */
+    position: fixed; /* or fixed */
+    overflow: auto; /* Enable scrolling if the sidenav has too much content */
+    box-shadow: 0px 1rem 1rem 1rem black;
+}
+
+li {
+    position: relative;
+    text-align: left;
+    margin-left: -1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+li.navheader {
+    text-align: left;
+    margin-left: -0.5rem;
+    margin-right: 1rem;
+}
+
+hr.nav-hr {
+    margin-left: -0.5rem;
+    margin-top: -0.5rem;
+    margin-bottom: -1rem;
+}
+
+a {
+    color: white;
+    padding-left: 1rem;
+    text-decoration: none;
+}
+
+a:hover {
+    color:rgb(125, 125, 125)
+}
+
+.nav-icon {
+    text-align: center; 
+    font-size: 5rem;
+    margin-left: -2.5rem;
+    padding: 0;
+}
+
+/* Body */
+main {
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 200px);
+    background-color: rgb(17, 17, 17);
+    padding: 0;
+    margin-left: 10%;
+    padding: 1rem;
+    /*
+    background-image: url("bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    */
+}
+
+.main-squeeze {
+    display: flex;
+    justify-content: center;
+    margin-left: 4rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    text-align: left;
+    position: relative;
+    height: 100%;
+    width: 50%;
+    background-color: #252525;
+    color: white;
+    box-shadow: 0px 1rem 1rem 1rem black;
+}
+
+
+
+h1 {
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Contact form */
+.contact-form {
+    text-align: center;
+}
+
+.form-element {  
+    margin: 1rem;
+    box-shadow: 0.3rem 0.3rem 1rem black;
+}
+
+.button {
+    border-radius: 4px;
+    color: white;
+    background-color:#101010;
+    border: none;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button:hover {
+    background-color: #151515;
+    color: white;
+}
+
+/* Projects */
+.project-element {
+    margin-left: -5rem;
+    padding-bottom: 2rem;
+}
+
+
+/* Decorations */
+hr {
+    border-top: px solid #d5d5d5;
+    width: 90%;
+    margin-top: .8rem;
+    margin-bottom: 1rem;
+    box-shadow: 0rem 0rem 1rem 0.1rem black;
+}
+
+hr.bottom {
+    border-top: 2px solid #535353;
+    width: 90%;
+    margin-bottom: 2rem;
+}
+
+/* Footer */
+footer {
+    align-self: center;
+    bottom: 0;
+    position: relative;
+    text-align: center;
+    text-shadow: 0.3rem 0.3rem 0.5rem rgb(99, 98, 98);
+    padding: 0;
+    margin-left: 10%;
+    padding: 1rem;
+}
+
+
+
+
+
