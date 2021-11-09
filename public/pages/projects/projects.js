@@ -7,10 +7,10 @@ fetch("/api/projects")
         const projectDiv = document.createElement("div");
         projectDiv.classList.add("project-element")
         projectDiv.innerHTML = `
-            <h3>${escapeHTML(project.name)}</h3>
+            <h3>${escapeHTML(project.title)}</h3>
             <p>Category: ${escapeHTML(project.category)}</p>
             <p>Technologies: ${escapeHTML(project.technologies.join(", "))}</p>
-            <p>Links: ....</p>
+            <p>Links: ${escapeHTML(project.links.join(", "))}p>
         `;
         
         projectsWrapperDiv.appendChild(projectDiv);

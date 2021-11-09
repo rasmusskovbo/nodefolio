@@ -1,4 +1,16 @@
 <h1>CV</h1>
 <hr>
-<iframe src="./assets/cveng.pdf" height="1000rem" width="800rem"></iframe>
+<div class="cv-wrapper">
+    <iframe id="frameContainer" src="./assets/cveng.pdf" class="cv-viewer"></iframe>
+</div>
 <hr class="bottom">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(function() {
+    var widthRatio = $('#frameContainer').width() / $(window).width();
+    $(window).resize(function() {
+        $('#frameContainer').css({width: $(window).width() * widthRatio});
+    }); 
+});
+</script>

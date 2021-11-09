@@ -14,7 +14,7 @@ import contactRouter from './routers/contactRouter.js'
 app.use(dataRouter)
 //app.use(pagesRouter.router)
 app.use(contactRouter)
-const { createPage } = require('./util/render.js')
+import { createPage } from './util/render.js'
 
 /// Ready HTML pages using createPage js ///
 const frontpagePage = createPage("frontpage/frontpage.html", {
