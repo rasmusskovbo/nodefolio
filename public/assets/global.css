@@ -5,10 +5,12 @@ body {
     background-color: rgb(17, 17, 17);
     color: white;
     margin: 0;
+    min-height: 10rem;
 }
 
 /* Nav bar */
 ul {
+    border-radius: 1rem;
     list-style-type: none;
     margin: 1rem;
     padding-top: 0.5rem;
@@ -19,7 +21,7 @@ ul {
     height: relative; /* 100% for full page sidenav */
     position: fixed; /* or fixed */
     overflow: auto; /* Enable scrolling if the sidenav has too much content */
-    box-shadow: 0px 1rem 1rem 1rem black;
+    box-shadow: 0.5rem 1rem 1rem 1rem black;
 }
 
 li {
@@ -77,6 +79,7 @@ main {
 }
 
 .main-squeeze {
+    border-radius: 1rem;
     display: flex;
     justify-content: center;
     margin-left: 4rem;
@@ -88,10 +91,10 @@ main {
     width: 50%;
     background-color: #252525;
     color: white;
-    box-shadow: 0px 1rem 1rem 1rem black;
+    box-shadow: 0.5rem 1rem 1rem 1rem black;
 }
 
-h1 {
+h1, h2 {
     font-weight: bold;
     text-align: center;
 }
@@ -119,7 +122,7 @@ h1 {
 }
 
 .button {
-    border-radius: 4px;
+    border-radius: 0.5rem;
     color: white;
     background-color:#101010;
     border: none;
@@ -135,8 +138,20 @@ h1 {
 
 /* Projects */
 .project-element {
-    margin-left: -5rem;
+    text-align: center;
     padding-bottom: 2rem;
+}
+
+/* Dashboard */
+.dashboard-wrapper {
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.row {
+    align-self: center;
 }
 
 
@@ -157,14 +172,12 @@ hr.bottom {
 
 /* Footer */
 footer {
-    align-self: center;
     bottom: 0;
     position: relative;
     text-align: center;
     text-shadow: 0.3rem 0.3rem 0.5rem rgb(99, 98, 98);
-    padding: 0;
-    margin-left: 10%;
     padding: 1rem;
+    left: 7.5%;
 }
 
 

@@ -9,7 +9,6 @@ const mockProjects = [
 
 import { connectSqlite } from "../database/connectSqlite.js";
 
-// TODO return in a format that can be mapped in pages/projects.js
 router.get("/api/projects", async (req, res) => {
     const dbConnection = await connectSqlite();
 
@@ -18,24 +17,31 @@ router.get("/api/projects", async (req, res) => {
     res.send(projects);    
 });
 
-router.get("/api/mock", (req, res) => {
-    res.send(mockProjects);    
-});
-
-router.get("/api/insert", async (req, res) => {
-    //const projectToCreate = req.body;
+router.post("/api/projects", async (req, res) => {
+    const newProject = req.body;
 
     const dbConnection = await connectSqlite();
 
     const projects = dbConnection.run(`
-    INSERT INTO 'projects'
-    ('title', 'category') 
-    VALUES 
-    ('Test Title', 'Test Category');
-    `);
+        INSERT INTO projects 
+        ('title', 'category', 'technologies', 'links') 
+        VALUES 
+        (?, ?, ?, ?);
+        `, 
+        [newProject.title, newProject.category, newProject.technologies, newProject.links],
+        function(err) {
+            // Validate input instead.
+            res.sendStatus(400)
+        }
+    )
+
 
     res.sendStatus(200)
-    //res.send(projects);    
+
 })
+
+router.get("/api/mock", (req, res) => {
+    res.send( mockProjects );
+});
 
 export default router

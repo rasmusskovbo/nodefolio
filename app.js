@@ -33,6 +33,10 @@ const projectsPage = createPage("projects/projects.html", {
     title: "Nodefolio | Projects"
 })
 
+const dashboardPage = createPage("dashboard/dashboard.html", {
+    title: "Nodefolio | DSHBRD"
+})
+
 /// HTTP Requests ///
 app.get("/", (req, res) => {
     res.send(frontpagePage)
@@ -48,6 +52,10 @@ app.get("/contact", (req, res) => {
 
 app.get("/projects", (req, res) => {
     res.send(projectsPage)
+})
+
+app.get("/dshbrd", (req, res) => {
+    res.send(dashboardPage)
 })
 
 /// PORT setup ///

@@ -1,0 +1,37 @@
+<h1>Dashboard</h1>
+<hr>
+<h2>Create Project</h2>
+<div class="dashboard-wrapper">
+    <div class="row">
+        <input class="form-element" id="title" type="text" placeholder="Project title..." value="Test Navn" required>
+        <input class="form-element" id="category" type="text" placeholder="Category..." value="Test Kategori" required>
+    </div>
+    <div class="row">
+        <input size=50 class="form-element" id="technologies" type="text" placeholder="Relevant technologies..." value="Test Teknologier" required>
+        <input size=50 class="form-element" id="links" type="text" placeholder="Links..." value="Test Links" required>
+    </div>
+    <div>
+        <button class="form-element button" id="create-project">Create Project</button>
+    </div>
+</div>
+
+<hr>
+<!-- Populate with projects via API -->
+<h2>Update / Delete Projects</h2>
+
+<table class="projects-wrapper">
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Category</th>
+      <th>Technologies</th>
+      <th>Links</th>
+    </tr>
+    <!-- Create TR, TDs and append to table -->
+  </table> 
+
+<hr class="bottom">
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js" ></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="./pages/dashboard/dashboard.js"></script>
