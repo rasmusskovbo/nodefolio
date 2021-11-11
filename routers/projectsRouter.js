@@ -1,5 +1,5 @@
-import express from "express";
-const router = express.Router();
+import express from "express"
+const router = express.Router()
 
 const mockProjects = [
     { name: "Node.js Recap", category: "Node.js", technologies: ["Node.js", "Html", "CSS"] },
@@ -10,17 +10,17 @@ const mockProjects = [
 import { connectSqlite } from "../database/connectSqlite.js";
 
 router.get("/api/projects", async (req, res) => {
-    const dbConnection = await connectSqlite();
+    const dbConnection = await connectSqlite()
 
-    const projects = await dbConnection.all("SELECT * FROM projects");
+    const projects = await dbConnection.all("SELECT * FROM projects")
 
-    res.send(projects);    
+    res.send(projects)   
 });
 
 router.post("/api/projects", async (req, res) => {
-    const newProject = req.body;
+    const newProject = req.body
 
-    const dbConnection = await connectSqlite();
+    const dbConnection = await connectSqlite()
 
     const projects = await dbConnection.run(`
         INSERT INTO projects 
@@ -40,7 +40,7 @@ router.post("/api/projects", async (req, res) => {
 router.delete("/api/projects/:projectId", async (req, res) => {
     const IDofProjectToDelete = req.params.projectId
 
-    const dbConnection = await connectSqlite();
+    const dbConnection = await connectSqlite()
 
     dbConnection.run(`
         DELETE FROM projects WHERE id = ?
@@ -55,10 +55,10 @@ router.delete("/api/projects/:projectId", async (req, res) => {
 })
 
 router.put("/api/projects/", async (req, res) => {
-    const project = req.body;
+    const project = req.body
     console.log(project)
 
-    const dbConnection = await connectSqlite();
+    const dbConnection = await connectSqlite()
 
     dbConnection.run(`
         UPDATE projects 
@@ -80,7 +80,7 @@ router.put("/api/projects/", async (req, res) => {
 })
 
 router.get("/api/mock", (req, res) => {
-    res.send( mockProjects );
+    res.send( mockProjects )
 });
 
 export default router

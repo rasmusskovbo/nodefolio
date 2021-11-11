@@ -1,6 +1,5 @@
 import { connectSqlite } from "./connectSqlite.js";
 
-
 (async () => {
     const dbConnection = await connectSqlite();
 
@@ -16,4 +15,18 @@ import { connectSqlite } from "./connectSqlite.js";
         );
     `
     await dbConnection.exec(projectTableSchema);
+})()
+
+(async () => {
+    const dbConnection = await connectSqlite();
+
+    await dbConnection.exec("DROP TABLE IF EXISTS secrets;");
+
+    const secretsSchema = `
+        CREATE TABLE secrets (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            hash TEXT NOT NULL
+        );
+    `
+    await dbConnection.exec(secretsSchema);
 })() 

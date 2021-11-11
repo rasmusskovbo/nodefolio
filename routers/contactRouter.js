@@ -2,15 +2,15 @@ import express from "express";
 const router = express.Router();
 import nodemailer from "nodemailer"
 const email = "nodefolio.skovbo@gmail.com";
-const credentials = "ZPR5mkc2efd@ywb4ybg";
+import fs from "fs"
+const credentials = JSON.parse(fs.readFileSync("config.json"))
 
-// We get the contact data here to send via email.
 router.post("/contact/", async (req, res) => {
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
           user: email,
-          pass: credentials
+          pass: credentials.pass
         }
       })
 
