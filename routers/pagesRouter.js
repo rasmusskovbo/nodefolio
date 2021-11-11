@@ -30,7 +30,6 @@ const adminPage = createPage("admin/admin.html", {
 
 /// HTTP Requests ///
 router.get("/", (req, res) => {
-    console.log(req.session.loggedIn)
     res.send(frontpagePage)
 })
 

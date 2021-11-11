@@ -56,7 +56,6 @@ router.delete("/api/projects/:projectId", async (req, res) => {
 
 router.put("/api/projects/", async (req, res) => {
     const project = req.body
-    console.log(project)
 
     const dbConnection = await connectSqlite()
 

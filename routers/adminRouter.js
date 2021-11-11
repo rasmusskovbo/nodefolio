@@ -32,7 +32,6 @@ router.get("/admin/logout", (req, res) => {
 router.get("/saveAdminHash", (req, res) => {
     bcrypt.genSalt(saltRounds, function(err, salt) {
         bcrypt.hash(req.body.pass, salt, async function(err, hash) {
-            console.log(hash);
             
             const db = await connectSqlite()
     

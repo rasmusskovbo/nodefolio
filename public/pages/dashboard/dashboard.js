@@ -47,7 +47,6 @@ function createProject() {
         })
     }).then(res => {
         if (res.status == 200) {
-            console.log("Success")
             toastr.success("Project created successfully")
             setTimeout(() => location.href= "/dshbrd", 1500);
         }
