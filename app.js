@@ -1,62 +1,23 @@
 /// Init ////
 import express from "express";
+import session from "express-session";
 const app = express();
 
+app.use(session({secret: 'shh'}));
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 /// Route import ///
 import dataRouter from './routers/projectsRouter.js'
-//import pagesRouter from './routers/pagesRouter.js'
+import pagesRouter from './routers/pagesRouter.js'
 import contactRouter from './routers/contactRouter.js'
+import adminRouter from './routers/adminRouter.js'
 
 app.use(dataRouter)
-//app.use(pagesRouter.router)
+app.use(pagesRouter)
 app.use(contactRouter)
-import { createPage } from './util/render.js'
-
-/// Ready HTML pages using createPage js ///
-const frontpagePage = createPage("frontpage/frontpage.html", {
-    title: "Nodefolio | Welcome"
-})
-
-const cvPage = createPage("cv/cv.html", {
-    title: "Nodefolio | CV"
-})
-
-const contactPage = createPage("contact/contact.html", {
-    title: "Nodefolio | Contact Me"
-})
-
-const projectsPage = createPage("projects/projects.html", {
-    title: "Nodefolio | Projects"
-})
-
-const dashboardPage = createPage("dashboard/dashboard.html", {
-    title: "Nodefolio | DSHBRD"
-})
-
-/// HTTP Requests ///
-app.get("/", (req, res) => {
-    res.send(frontpagePage)
-})
-
-app.get("/cv", (req, res) => {
-    res.send(cvPage)
-})
-
-app.get("/contact", (req, res) => {
-    res.send(contactPage)
-})
-
-app.get("/projects", (req, res) => {
-    res.send(projectsPage)
-})
-
-app.get("/dshbrd", (req, res) => {
-    res.send(dashboardPage)
-})
+app.use(adminRouter)
 
 /// PORT setup ///
 const PORT = process.env.PORT || 3000

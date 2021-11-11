@@ -22,22 +22,61 @@ router.post("/api/projects", async (req, res) => {
 
     const dbConnection = await connectSqlite();
 
-    const projects = dbConnection.run(`
+    const projects = await dbConnection.run(`
         INSERT INTO projects 
         ('title', 'category', 'technologies', 'links') 
         VALUES 
         (?, ?, ?, ?);
         `, 
-        [newProject.title, newProject.category, newProject.technologies, newProject.links],
-        function(err) {
-            // Validate input instead.
-            res.sendStatus(400)
-        }
-    )
+        [newProject.title, newProject.category, newProject.technologies, newProject.links]
+    ).then(() => {
+        res.sendStatus(200)
+    }).catch(() => {
+        // TODO customize response to assist in proper formatting
+        res.sendStatus(400)
+    })
+})
 
+router.delete("/api/projects/:projectId", async (req, res) => {
+    const IDofProjectToDelete = req.params.projectId
 
-    res.sendStatus(200)
+    const dbConnection = await connectSqlite();
 
+    dbConnection.run(`
+        DELETE FROM projects WHERE id = ?
+        `, 
+        IDofProjectToDelete
+    ).then(() => {
+        res.sendStatus(200)
+    }).catch(() => {
+        // TODO customize response to assist in proper formatting
+        res.sendStatus(404)
+    })
+})
+
+router.put("/api/projects/", async (req, res) => {
+    const project = req.body;
+    console.log(project)
+
+    const dbConnection = await connectSqlite();
+
+    dbConnection.run(`
+        UPDATE projects 
+        SET 
+        title = ?,
+        category = ?,
+        technologies = ?,
+        links = ?
+        WHERE id = ?
+        `, 
+        [project.title, project.category, project.technologies, project.links, project.id]
+    ).then(() => {
+        res.sendStatus(200)
+    }).catch(() => {
+        // TODO customize response to assist in proper formatting
+        res.sendStatus(404)
+    })
+    
 })
 
 router.get("/api/mock", (req, res) => {

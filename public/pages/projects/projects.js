@@ -7,9 +7,9 @@ fetch("/api/projects")
         projectDiv.classList.add("project-element")
         projectDiv.innerHTML = `
             <h3>${escapeHTML(project.title)}</h3>
-            <p>Category: ${escapeHTML(project.category)}</p>
-            <p>Technologies: ${escapeHTML(project.technologies)}</p>
-            <p>Links: ${escapeHTML(project.links)}</p>
+            <p>Category:  ${escapeHTML(project.category)}</p>
+            <p>Technologies:  ${escapeHTML(project.technologies)}</p>
+            <p>Link:<a href="https://${project.links}">GitHub</p>
         `;
         
         projectsWrapperDiv.appendChild(projectDiv);
