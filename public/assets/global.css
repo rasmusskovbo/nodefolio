@@ -193,6 +193,11 @@ hr.bottom {
     color: white;
 }
 
+.button:active {
+    transform: translateY(0.3rem) translateX(0.3rem);
+    box-shadow: 0.0rem 0.0rem 1rem black;
+}
+
 .fas-btn {
     background-color: #20202000;
     font-size: large;
